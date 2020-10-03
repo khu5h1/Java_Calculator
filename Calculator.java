@@ -15,6 +15,8 @@ public class Calculator extends javax.swing.JFrame {
     int multiplyClick;
     int divideClick;
     int decimalClick;
+    int cosClick;
+    int sinClick;
 
     public Calculator() {
         initComponents();
@@ -42,6 +44,8 @@ public class Calculator extends javax.swing.JFrame {
         Multiply = new javax.swing.JButton();
         Minus = new javax.swing.JButton();
         Plus = new javax.swing.JButton();
+        Cosine = new javax.swing.JButton();
+        Sine = new javax.swing.JButton();
         Equals = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -177,6 +181,20 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        Cosine.setText("cos");
+        Cosine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CosineActionPerformed(evt);
+            }
+        });
+
+        Sine.setText("sin");
+        Sine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SineActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("CALCULATOR");
 
@@ -210,7 +228,11 @@ public class Calculator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(NegorPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Cosine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Sine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -248,14 +270,16 @@ public class Calculator extends javax.swing.JFrame {
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Divide, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cosine, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Multiply, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NegorPos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NegorPos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Sine, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -380,8 +404,36 @@ public class Calculator extends javax.swing.JFrame {
      decimalClick=0;
     }//GEN-LAST:event_DivideActionPerformed
 
+    private void CosineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideActionPerformed
+        // Coding for Cosine:
+     
+         firstNum=(Double.parseDouble(jTextField1.getText()));
+     jTextField1.setText("");
+     cosClick=1;
+     decimalClick=0;
+    }
+
+    private void SineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideActionPerformed
+        // Coding for Sine:
+     
+         firstNum=(Double.parseDouble(jTextField1.getText()));
+     jTextField1.setText("");
+     sinClick=1;
+     decimalClick=0;
+    }
+
     private void EqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EqualsActionPerformed
         // TODO add your handling code here:
+
+    if (cosClick > 0) {
+        jTextField1.setText(Double.toString(Math.cos(firstNum)));
+        firstNum = 0;
+        cosClick = 0;
+    } else if (sinClick > 0) {
+        jTextField1.setText(Double.toString(Math.sin(firstNum)));
+        firstNum = 0;
+        sinClick = 0;
+    } else {
          secondNum=(Double.parseDouble(jTextField1.getText()));
      if(plusClick>0){
      total = firstNum + secondNum;
@@ -417,6 +469,7 @@ public class Calculator extends javax.swing.JFrame {
      secondNum = 0;
      divideClick = 0;
 
+    }
     }
     }//GEN-LAST:event_EqualsActionPerformed
 
@@ -462,6 +515,8 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton Multiply;
     private javax.swing.JButton NegorPos;
     private javax.swing.JButton Plus;
+    private javax.swing.JButton Cosine;
+    private javax.swing.JButton Sine;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
