@@ -238,11 +238,28 @@ public class Calculator extends javax.swing.JFrame {
                 logActionPerformed(evt);
             }
         });
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("CALCULATOR");
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel1.setText("CALCULATOR");
+        
+        log.setBackground(new java.awt.Color(237, 184, 121));
+        NegorPos.setBackground(new java.awt.Color(237, 184, 121));
+        Clear.setBackground(new java.awt.Color(237, 184, 121));
+        Sinh.setBackground(new java.awt.Color(237, 184, 121));
+        Cosh.setBackground(new java.awt.Color(237, 184, 121));
+        Tanh.setBackground(new java.awt.Color(237, 184, 121));
+        Tan.setBackground(new java.awt.Color(153,255,255));
+        Sine.setBackground(new java.awt.Color(153,255,255));
+        Cosine.setBackground(new java.awt.Color(153,255,255));
+        Divide.setBackground(new java.awt.Color(153,255,255));
+        Plus.setBackground(new java.awt.Color(153,255,255));
+        Minus.setBackground(new java.awt.Color(153,255,255));
+        Multiply.setBackground(new java.awt.Color(153,255,255));
+        Equals.setBackground(new java.awt.Color(153,255,255));
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+        getContentPane().setBackground(new java.awt.Color(50, 166, 198));
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -304,10 +321,10 @@ public class Calculator extends javax.swing.JFrame {
                                     .addComponent(log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Equals, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(115, 120, 128)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
